@@ -1,0 +1,12 @@
+/* Example: change header background and logo */
+#header {
+    background-color: #4CAF50; /* Green header */
+}
+
+#header h1 a {
+    background: url('/static/images/logo.png') no-repeat;
+    background-size: contain;
+    color: white;
+    padding-left: 60px; /* adjust depending on logo size */
+    text-decoration: none;
+}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<title>Room</title>
+  <div class="container my-5">
+    
+<div class="container my-5">
+  <h2 class="text-center mb-4">Available Rooms</h2>
+  <div class="row">
+    {% for room in rooms_items %}
+    <div class="col-md-4 mb-4">
+      <!-- Bootstrap Card for each room -->
+      <div class="card shadow-sm h-100 room-card">
+        <img src="{{ room.room_image.url }}" class="card-img-top room-image" alt="{{ room.room_type }}">
+        <div class="card-body text-center">
+          <h5 class="card-title">Type: {{ room.room_type }}</h5>
+          <p class="card-text">{{ room.description|truncatechars:60 }}</p>
+          <p class="text-primary fw-bold">Ksh.{{ room.price_per_night }} per night</p>
+          <!-- Button that triggers the modal -->
+          <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#roomModal{{ room.id }}">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for room details -->
+    <div class="modal fade" id="roomModal{{ room.id }}" tabindex="-1" aria-labelledby="roomModalLabel{{ room.id }}" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="roomModalLabel{{ room.id }}">Room: {{ room.room_type }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="{{ room.room_image.url }}" alt="{{ room.room_type }}" class="img-fluid mb-3">
+            <p>{{ room.description }}</p>
+            <p><strong>Price:</strong> Ksh.{{ room.price_per_night }} per night</p>
+          </div>
+          <div class="modal-footer">
+            <!-- Link to your booking form -->
+            <a href="{% url 'book_room' %}" class="btn btn-success">Proceed to Book</a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    {% empty %}
+    <p>No Room is Available</p>
+    {% endfor %}
+  </div>
+</div>
+<section class="testimonials py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">What Our Customers Say</h2>
+    
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="card shadow-sm border-0 p-4 text-center">
+            <img src="{% static 'main/ChatGPT Image May 1, 2025, 01_00_01 PM.png' %}" alt="Customer 1" class="rounded-circle mb-3" width="80" height="80">
+            <p class="text-muted">"The best food I’ve ever had. Amazing service!"</p>
+            <h5 class="mb-0">Mary Wanjiku</h5>
+            <small class="text-muted">Nairobi</small>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card shadow-sm border-0 p-4 text-center">
+            <img src="{% static 'main/ChatGPT Image May 1, 2025, 01_00_01 PM.png' %}" alt="Customer 2" class="rounded-circle mb-3" width="80" height="80">
+            <p class="text-muted">"Excellent experience, would highly recommend."</p>
+            <h5 class="mb-0">James Mwangi</h5>
+            <small class="text-muted">Eldoret</small>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card shadow-sm border-0 p-4 text-center">
+            <img src="{% static 'main/ChatGPT Image May 1, 2025, 01_00_01 PM.png' %}" alt="Customer 3" class="rounded-circle mb-3" width="80" height="80">
+            <p class="text-muted">"Beautiful place, delicious food, and friendly staff."</p>
+            <h5 class="mb-0">Achieng Otieno</h5>
+            <small class="text-muted">Kisumu</small>
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+      </button>
+    </div>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+<!--     </div>
+ -->
+  
+
