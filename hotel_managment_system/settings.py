@@ -44,6 +44,9 @@ SECRET_KEY = 'django-insecure-5@r#umm!=fyxbc#cjh&yougdrgp3!$(55*em3w*&sp-+4i^@-2
 # Application definition
 
 INSTALLED_APPS = [
+     'cloudinary',
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -70,6 +73,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('dojcnismc'),
+    'API_KEY': os.environ.get('837669984724316'),
+    'API_SECRET': os.environ.get('YBcYkFVXagOtOnN6FV9PvAXKnGE'),
+}
 
 ROOT_URLCONF = 'hotel_managment_system.urls'
 STATIC_URL = '/static/'
