@@ -29,6 +29,7 @@ django-appconf==1.1.0
 django-cloudinary-storage==0.3.0
 django-compressor==4.5.1
 django-crispy-forms==2.4
+django-decouple==2.1
 django-widget-tweaks==1.5.0
 executing==2.2.0
 fastjsonschema==2.21.1
@@ -147,9 +148,3 @@ whitenoise==6.6.0
 widgetsnbextension==4.0.13
 xgboost==2.1.4
 yt-dlp==2025.2.19
-Django
-gunicorn
-whitenoise
-Django>=4.2
-gunicorn>=21.2.0
-whitenoise>=6.6.0

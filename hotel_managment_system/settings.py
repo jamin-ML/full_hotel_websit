@@ -13,8 +13,8 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-your-local-dev-key-he
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'yourusername.pythonanywhere.com',  # Replace with your PA username
-    'www.yourusername.pythonanywhere.com',
+    'jjmljuma.pythonanywhere.com',  # Replace with your PA username
+    'www.jjmljuma.pythonanywhere.com',
     '127.0.0.1',
     'localhost'
 ]
