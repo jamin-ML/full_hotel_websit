@@ -147,3 +147,7 @@ whitenoise==6.6.0
 widgetsnbextension==4.0.13
 xgboost==2.1.4
 yt-dlp==2025.2.19
+
+Django
+gunicorn
+whitenoise
