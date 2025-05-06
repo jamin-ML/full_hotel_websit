@@ -17,6 +17,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # settings.py
 
+# Set debug mode
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+
+# Configure allowed hosts  # For initial deployment, tighten later
+ALLOWED_HOSTS = ['full-hotel-websit-1.onrender.com']
+
+
 # Media files (user uploaded content)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -32,7 +39,6 @@ LOGOUT_REDIRECT_URL = 'home'
 SECRET_KEY = 'django-insecure-5@r#umm!=fyxbc#cjh&yougdrgp3!$(55*em3w*&sp-+4i^@-2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 # Application definition
 
@@ -54,6 +60,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -67,7 +74,8 @@ ROOT_URLCONF = 'hotel_managment_system.urls'
 STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 
-#STATIC_ROOT = BASE_DIR / 'staticfiles'  # For production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+  # For production
 STATICFILES_DIRS = [
     BASE_DIR / 'main' / 'static',  # Development static files
 ]
