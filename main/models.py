@@ -101,7 +101,13 @@ class Room(models.Model):
         # Return a string that combines room number and type for easy identification
         return f"{self.room_number} - {self.room_type}"
 
-
+class About(models.Model):
+    images = models.ImageField(upload_to='about_images/')
+    title = models.CharField(max_length=100, default='About Us')
+    description = models.TextField(default='Description about the hotel.')
+    def __str__(self):
+        # Return the image path as a string representation of the About model
+        return self.title
 # ---------------------------
 # 5. Booking Model
 # ---------------------------

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import FoodItem, Order, Booking, Room, User
+from .models import FoodItem, Order, Booking, Room, User,About
 
 # Site Customization
 admin.site.site_header = "Hotel Management"
@@ -53,4 +53,6 @@ admin.site.register(FoodItem, FoodItemAdmin)
 admin.site.register(Room, RoomAdmin)
 
 
-
+class AboutAdmin(MyAdmin):
+    list_display = ('title', 'description')  # Fields to display
+admin.site.register(About, AboutAdmin)  # Register About model with custom admin

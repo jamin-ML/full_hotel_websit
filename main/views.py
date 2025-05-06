@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect,get_list_or_404
-from .models import FoodItem, Room, Booking
+from .models import FoodItem, Room, Booking, About
 from django.contrib.auth.decorators import login_required
 from .forms import BookingForm, RegisterForm, RegisterForm
 from django.contrib.auth import login as auth_login, authenticate
@@ -12,6 +12,10 @@ from django.db.models import Q
 def food_menu(request):
     food_items = FoodItem.objects.all()
     return render(request, 'main/food_menu.html', {'food_items': food_items})
+
+def about(request):
+    about_items = About.objects.all()
+    return render(request, 'main/about.html', {'about_items': about_items}) 
 
 def home(request):
     return redirect('food_menu')

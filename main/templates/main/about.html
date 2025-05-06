@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% block styles %}
+<!-- Blocked styles or custom styles -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'main/about.css' %}"> 
+{% endblock %}
+
+<div class="message">
+    <p>
+        Nestled in the heart of the community, this modern supermarket offers a vibrant shopping experience 
+        like no other. With wide, well-lit aisles and neatly arranged shelves, it boasts an impressive selection of 
+        fresh produce, quality meats, household essentials, and international delicacies. Friendly staff ensure quick assistance, 
+        while digital price tags and self-checkout stations add a touch of convenience. A cozy bakery fills the air with irresistible aromas, 
+        and a dedicated organic section caters to health-conscious shoppers. Clean, spacious, and thoughtfully designed, 
+        this supermarket combines efficiency with warmth, making every visit enjoyable and every purchase satisfying.
+    </p>
+</div>
+
+<div class="search">
+    <input type="text" placeholder="Search">
+    <button>Search</button>
+</div>
+
+<div class="">
+    {% for about in about_items %}  
+        <div class="">
+            <img src="{{ about.image.url }}" alt="{{ about.name }}" class="img-fluid mb-3">
+        </div>
+    {% empty %}
+        <p class="text-center">No items available</p>
+    {% endfor %}
+</div>
+
+<script src="{% static 'about-page.js' %}"></script>
+{% endblock %}

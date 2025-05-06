@@ -1,98 +1,225 @@
-body {
-    font-family: Arial, sans-serif;
+body{
+    font-family: 'segoe UI',verdana, Geneva, Tahoma,sans-serif;
     margin: 0;
     padding: 0;
-    background-color: yellow !important;
-      
+    padding-left: 0;
+    padding-top: 80px;
+    
 }
 
-header {
-    background-color: #002b40;
-    padding: 10px 20px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+/*Header*/
 
-.nav-container {
-    display: flex;
-    align-items: center;
+.nav-container{
     width: 100%;
-    flex-wrap: wrap;
-}
-
-.logo {
-    height: 60px;
-    margin-right: 20px;
-}
-
-.search-bar {
-    flex: 1;
-    padding: 8px 12px;
-    border-radius: 5px;
-    border: none;
-    margin-right: 20px;
-}
-
-.nav-links a {
-    color: white;
-    margin-left: 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-    margin: 20px 0;
-}
-
-.menu-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+    justify-content: space-between;
+    padding: 10px 40px;
+    align-items: center;
+    background-color: #eee7e7;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    top: 0;
+    z-index: 999;
+    position: fixed;
 
-.menu-item {
-    background-color: white;
+}
+.logo{
+    height: 60px;
+}
+.search-bar{
+    width: 300px;
+    padding: 5px 10px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 250px;
-    margin: 15px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    outline: none;
+}
+.nav-links a{
+    color: #333;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
 }
 
-.menu-item img {
+.nav-links a:hover{
+    color: #007bff;
+}
+/*Title*/
+h1{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 2rem;
+
+}
+ /*Food menu*/
+ .menu-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 40px 40px;
+ }
+
+/* Image inside food menu cards */
+.menu-items img {
+    width: 100%;           /* Ensures image fills card width */
+    max-height: 180px;     /* Limits image height */
+    object-fit: cover;     /* Crops image to maintain aspect ratio */
+    display: block;
+}
+ .menu-items:hover {
+    transform: scale(1.05);
+  }
+
+.menu-items img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
-.menu-item h2 {
-    margin-top: 10px;
-    font-size: 1.2em;
-    color: #444;
+.menu-items h1 {
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
 }
 
-.menu-item p {
-    color: #777;
-    margin-top: 5px;
+.menu-items p {
+    font-size: 0.9rem;
+    color: #555;
+    padding: 0 10px;
 }
 
+/* Order Button */
 .order-button {
     margin-top: 10px;
-    background-color: #004d66;
+    padding: 10px 25px;
+    background-color: #28a745;
     color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
+    font-size: 0.95rem;
 }
 
 .order-button:hover {
-    background-color: #007ea7;
+    background-color: #218838;
+    
+}
+
+/* Footer */
+.footer{
+    margin-top: 50px;
+    color: white;
+    padding: 40px 20px;
+    background-image: url('photo-1592861956120-e524fc739696.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: aliceblue;
+    background-color: #dddddd;
+}
+.footer-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: left;
+    color: cyan;
+}
+p a{
+    color: greenyellow;
+}
+
+.testimonials {
+    background-color: #f8f9fa; /* light grey */
+  }
+  
+  .testimonials .card {
+    transition: transform 0.3s ease;
+  }
+  
+  .testimonials .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  .carousel-item {
+    transition: transform 0.6s ease-in-out;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-size: 1.5rem 1.5rem;
+    padding: 1rem;
+  }
+
+.room-image {
+    object-fit: cover;
+    height: 200px;
+}
+
+/* Room image (room cards) */
+.room-image {
+    width: 100%;           /* Makes sure the image doesn't overflow card width */
+    height: 200px;         /* Controls vertical size */
+    object-fit: cover;     /* Keeps nice cropping */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+
+/* Room image hover effect */
+.room-image:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Make the room image pop when hovered */
+.room-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+.room-image:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+/* Animate the card on hover */
+.room-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Bootstrap-style card image fix */
+.card-img-top {
+    width: 100%;           /* Full width inside card */
+    max-height: 200px;     /* Limits how tall the image gets */
+    object-fit: cover;     /* Ensures nice cropping */
+}
+.welcome h1 span {
+    color: gold;
+    margin-right: 5px;
+    font-weight: bold;
+
+}
+.welcome h1 {
+    color: green;
+}
+.registration-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
 }
